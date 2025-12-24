@@ -21,15 +21,33 @@ color:#222;
 line-height:1.6;
 overflow-x:hidden}
 
-/* HEADER */
+/* ===== HEADER ===== */
 header{
-position:fixed;top:0;width:100%;
+position:fixed;
+top:0;
+width:100%;
+height:70px;
 background:#fff;
-display:flex;justify-content:space-between;align-items:center;
-padding:1rem 2rem;
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:0 1.5rem;
 box-shadow:0 10px 30px rgba(0,0,0,.08);
 z-index:1000}
-header img{width:55px}
+
+/* LOGO */
+.logo{
+width:48px;
+height:48px;
+border-radius:50%;
+object-fit:cover;
+border:2px solid #00796b;
+background:#fff}
+
+/* NAV */
+nav{
+display:flex;
+align-items:center}
 nav a{
 margin-left:1.5rem;
 text-decoration:none;
@@ -37,17 +55,29 @@ color:#00796b;
 font-weight:600}
 nav a:hover{color:#004d40}
 
-/* HERO */
+/* MOBILE MENU */
+.menu-toggle{
+display:none;
+font-size:1.8rem;
+cursor:pointer;
+color:#00796b}
+
+/* ===== HERO ===== */
 .hero{
 min-height:100vh;
+padding-top:70px;
 background:linear-gradient(rgba(82,109,109,.8),rgba(124,217,170,.9)),
 url("img.jpg") center/cover;
-display:flex;align-items:center;justify-content:center;
-text-align:center;color:#fff;padding:2rem}
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+color:#fff;
+padding:2rem}
 .hero h1{font-size:3rem;margin-bottom:1rem}
 .hero p{font-size:1.2rem}
 
-/* BUTTON */
+/* ===== BUTTON ===== */
 .btn{
 display:inline-block;
 margin-top:2rem;
@@ -57,10 +87,11 @@ background:#ffca28;
 color:#000;
 font-weight:700;
 border:none;
-cursor:pointer}
-.btn:hover{background:#ffd95a}
+cursor:pointer;
+transition:.3s}
+.btn:hover{background:#ffd95a;transform:translateY(-3px)}
 
-/* SECTIONS */
+/* ===== SECTIONS ===== */
 section{
 padding:5rem 2rem;
 max-width:1200px;
@@ -71,20 +102,22 @@ font-size:2.4rem;
 margin-bottom:2.5rem;
 color:#00695c}
 
-/* GRID */
+/* ===== GRID ===== */
 .grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 gap:2rem}
 
-/* CARD */
+/* ===== CARD ===== */
 .card{
 background:#fff;
 border-radius:20px;
 padding:2rem;
-box-shadow:0 15px 40px rgba(0,0,0,.08)}
+box-shadow:0 15px 40px rgba(0,0,0,.08);
+transition:.3s}
+.card:hover{transform:translateY(-8px)}
 
-/* FORMS */
+/* ===== FORMS ===== */
 form{
 background:#fff;
 padding:2.5rem;
@@ -99,17 +132,28 @@ margin-bottom:1.2rem;
 border-radius:10px;
 border:1px solid #ccc}
 
-/* FLOATING */
+/* ===== FLOATING ===== */
 .floating{
-position:fixed;right:20px;bottom:20px;
-display:flex;flex-direction:column;gap:12px}
+position:fixed;
+right:20px;
+bottom:20px;
+display:flex;
+flex-direction:column;
+gap:12px;
+z-index:999}
 .floating a{
-width:56px;height:56px;border-radius:50%;
-display:grid;place-items:center;color:#fff;font-size:1.5rem}
+width:56px;
+height:56px;
+border-radius:50%;
+display:grid;
+place-items:center;
+color:#fff;
+font-size:1.5rem;
+box-shadow:0 10px 30px rgba(0,0,0,.3)}
 .call{background:#00796b}
 .whatsapp{background:#25D366}
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 footer{
 background:#004d40;
 color:#fff;
@@ -117,9 +161,25 @@ text-align:center;
 padding:2rem;
 margin-top:3rem}
 
+/* ===== MOBILE ===== */
 @media(max-width:768px){
 .hero h1{font-size:2.3rem}
-nav{display:none}
+.menu-toggle{display:block}
+
+nav{
+position:absolute;
+top:70px;
+right:0;
+width:100%;
+background:#fff;
+flex-direction:column;
+align-items:center;
+display:none;
+box-shadow:0 15px 40px rgba(0,0,0,.15)}
+nav a{
+margin:1rem 0;
+font-size:1.1rem}
+nav.active{display:flex}
 }
 </style>
 </head>
@@ -128,8 +188,9 @@ nav{display:none}
 
 <!-- HEADER -->
 <header>
-<img src="logos.jpeg" alt="Logo">
-<nav>
+<img src="logos.jpeg" alt="Logo" class="logo">
+<div class="menu-toggle" id="menuToggle">☰</div>
+<nav id="navMenu">
 <a href="#about">About</a>
 <a href="#services">Services</a>
 <a href="#facilities">Facilities</a>
@@ -151,8 +212,7 @@ nav{display:none}
 <section id="about">
 <h2>About Us</h2>
 <p style="text-align:center;max-width:800px;margin:auto">
-We provide compassionate, hospital-quality home nursing services with
-trained professionals ensuring dignity, comfort and recovery at home.
+We provide compassionate, hospital-quality home nursing services ensuring comfort, dignity and recovery at home.
 </p>
 </section>
 
@@ -186,65 +246,56 @@ trained professionals ensuring dignity, comfort and recovery at home.
 </div>
 </section>
 
-<!-- SUBMIT REVIEW -->
+<!-- REVIEW FORM -->
 <section>
 <h2>Submit a Review</h2>
-
-<form action="https://formspree.io/f/xwvejpqp" method="POST" autocomplete="off">
-
-<input type="hidden" name="_redirect"
-value="https://aonenursingcare.in/thank-you.html">
-
-<input type="hidden" name="_subject"
-value="New Review Submitted – A One Home Nursing Care">
-
-<input type="hidden" name="_template" value="table">
-
+<form action="https://formspree.io/f/xwvejpqp" method="POST">
+<input type="hidden" name="_redirect" value="https://aonenursingcare.in/thank-you.html">
+<input type="hidden" name="_subject" value="New Review – A One Home Nursing Care">
 <input type="text" name="name" placeholder="Your Name" required>
 <input type="email" name="email" placeholder="Email (optional)">
 <textarea name="review" placeholder="Write your review..." required></textarea>
-
-<button class="btn" type="submit">Submit Review</button>
+<button class="btn">Submit Review</button>
 </form>
 </section>
 
 <!-- APPOINTMENT -->
 <section id="appointment">
 <h2>Book an Appointment</h2>
-
-<form action="https://formspree.io/f/xwvejpqp" method="POST" autocomplete="off">
-
-<input type="hidden" name="_redirect"
-value="https://aonenursingcare.in/thank-you.html">
-
-<input type="hidden" name="_subject"
-value="New Appointment Booking – A One Home Nursing Care">
-
-<input type="hidden" name="_template" value="table">
-
+<form action="https://formspree.io/f/xwvejpqp" method="POST">
+<input type="hidden" name="_redirect" value="https://aonenursingcare.in/thank-you.html">
+<input type="hidden" name="_subject" value="New Appointment – A One Home Nursing Care">
 <input type="text" name="name" placeholder="Your Name" required>
-<input type="tel" name="phone" placeholder="Phone Number" pattern="[0-9]{10}" required>
+<input type="tel" name="phone" pattern="[0-9]{10}" placeholder="Phone Number" required>
 <input type="email" name="email" placeholder="Email Address" required>
-
 <select name="service" required>
 <option value="">Select Service</option>
 <option>Home Nursing</option>
 <option>Physiotherapy</option>
 <option>GDA</option>
 </select>
-
 <textarea name="message" placeholder="Your Message"></textarea>
-
-<button type="submit" class="btn">Submit</button>
+<button class="btn">Submit</button>
 </form>
 </section>
 
-<!-- FORM RESET ON BACK -->
+<!-- RESET FORMS ON BACK -->
 <script>
-window.addEventListener("pageshow", function (event) {
-  if (event.persisted) {
-    document.querySelectorAll("form").forEach(form => form.reset());
-  }
+window.addEventListener("pageshow",e=>{
+if(e.persisted){
+document.querySelectorAll("form").forEach(f=>f.reset());
+}});
+</script>
+
+<!-- MOBILE MENU FIX -->
+<script>
+const menuToggle=document.getElementById("menuToggle");
+const navMenu=document.getElementById("navMenu");
+const navLinks=navMenu.querySelectorAll("a");
+
+menuToggle.onclick=()=>navMenu.classList.toggle("active");
+navLinks.forEach(link=>{
+link.onclick=()=>navMenu.classList.remove("active");
 });
 </script>
 
