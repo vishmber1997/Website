@@ -41,13 +41,10 @@ width:48px;
 height:48px;
 border-radius:50%;
 object-fit:cover;
-border:2px solid #00796b;
-background:#fff}
+border:2px solid #00796b}
 
 /* NAV */
-nav{
-display:flex;
-align-items:center}
+nav{display:flex}
 nav a{
 margin-left:1.5rem;
 text-decoration:none;
@@ -101,6 +98,232 @@ text-align:center;
 font-size:2.4rem;
 margin-bottom:2.5rem;
 color:#00695c}
+
+/* ===== ABOUT ===== */
+.about-wrapper{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:3rem;
+align-items:center}
+
+.about-text h3{
+color:#00695c;
+margin-bottom:1rem}
+
+.about-gallery{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:1rem}
+
+.about-gallery img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:15px} */
+/* ===== ABOUT SECTION FIX ===== */
+/* #about{
+  background:#8ebb8e;
+}
+
+.about-wrapper{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:center;
+}
+
+/* Text
+.about-text{
+  background:#ffffff;
+  padding:2rem;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,.1);
+}
+
+.about-text h3{
+  color:#00695c;
+  margin-bottom:1rem;
+}
+
+.about-text p{
+  line-height:1.7;
+}
+
+/* Image grid */
+.about-gallery{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1rem;
+}
+
+.about-gallery img{
+  width:100%;
+  height:160px;
+  object-fit:cover;
+  border-radius:15px;
+} */
+.about-wrapper{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:3rem;
+align-items:center
+}
+
+.about-text h3{
+font-size:1.8rem;
+color:#00695c;
+margin-bottom:1rem
+}
+
+.about-text p{
+font-size:1.05rem;
+margin-bottom:1rem;
+line-height:1.7
+}
+
+.founder-card{
+background:#fff;
+border-radius:22px;
+box-shadow:0 20px 50px rgba(0,0,0,.12);
+padding:2rem;
+text-align:center;
+transition:.4s
+}
+
+.founder-card:hover{
+transform:translateY(-10px)
+}
+
+.founder-card img{
+width:180px;
+height:180px;
+border-radius:50%;
+object-fit:cover;
+border:6px solid #e0f2f1;
+margin-bottom:1rem
+}
+
+.founder-card h4{
+font-size:1.3rem;
+color:#004d40
+}
+
+.founder-card span{
+display:block;
+color:#666;
+font-size:.95rem;
+margin-bottom:1rem
+}
+
+.founder-gallery{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:1rem;
+margin-top:1rem
+}
+
+.founder-gallery img{
+width:100%;
+height:150px;
+object-fit:cover;
+border-radius:14px
+}
+
+@media(max-width:900px){
+.about-wrapper{
+grid-template-columns:1fr
+}
+}
+
+/* Poster / big image */
+.poster-img{
+  width:100%;
+  max-width:380px;
+  display:block;
+  margin:2rem auto 0;
+  border-radius:25px;
+  box-shadow:0 20px 50px rgba(0,0,0,.25);
+}
+
+section{
+padding:5rem 2rem;
+max-width:1200px;
+margin:auto}
+section h2{
+text-align:center;
+font-size:2.4rem;
+margin-bottom:2.5rem;
+color:#00695c}
+
+/* Grid */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+gap:2rem}
+
+/* Cards */
+.card{
+background:#fff;
+border-radius:20px;
+padding:2rem;
+box-shadow:0 15px 40px rgba(0,0,0,.08)}
+.card img{
+width:100%;
+height:180px;
+object-fit:cover;
+border-radius:15px;
+margin-bottom:1rem}
+
+/* ===== VIDEO ===== */
+.video-section{
+background:#eef7f6;
+border-radius:30px;
+padding:4rem 2rem;
+margin:4rem auto;
+max-width:1200px;
+}
+
+.video-wrapper{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:3rem;
+align-items:center;
+}
+
+.video-text h3{
+font-size:2rem;
+color:#00695c;
+margin-bottom:1rem;
+}
+
+.video-text p{
+font-size:1.05rem;
+line-height:1.7;
+margin-bottom:1rem;
+}
+
+.video-box{
+position:relative;
+border-radius:20px;
+overflow:hidden;
+box-shadow:0 20px 50px rgba(0,0,0,.2);
+}
+
+.video-box video{
+width:100%;
+height:auto;
+display:block;
+border-radius:20px;
+}
+
+@media(max-width:900px){
+.video-wrapper{
+grid-template-columns:1fr;
+}
+}
+
 
 /* ===== GRID ===== */
 .grid{
@@ -174,12 +397,11 @@ width:100%;
 background:#fff;
 flex-direction:column;
 align-items:center;
-display:none;
-box-shadow:0 15px 40px rgba(0,0,0,.15)}
-nav a{
-margin:1rem 0;
-font-size:1.1rem}
+display:none}
+nav a{margin:1rem 0}
 nav.active{display:flex}
+
+.about-wrapper{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -188,7 +410,7 @@ nav.active{display:flex}
 
 <!-- HEADER -->
 <header>
-<img src="logos.jpeg" alt="Logo" class="logo">
+<img src="logos.jpeg" class="logo">
 <div class="menu-toggle" id="menuToggle">☰</div>
 <nav id="navMenu">
 <a href="#about">About</a>
@@ -209,20 +431,123 @@ nav.active{display:flex}
 </div>
 
 <!-- ABOUT -->
-<section id="about">
+<!-- <section id="about">
 <h2>About Us</h2>
-<p style="text-align:center;max-width:800px;margin:auto">
-We provide compassionate, hospital-quality home nursing services ensuring comfort, dignity and recovery at home.
+
+<div class="about-wrapper">
+<div class="about-text">
+<h3>Compassionate Care. Clinical Excellence.</h3>
+<p>
+We provide hospital-quality home nursing with trained professionals,
+ensuring dignity, comfort and faster recovery in the safety of home.
 </p>
+</div>
+
+<div class="about-gallery">
+<img src="1.jpeg">
+<img src="2.jpeg">
+<img src="3.jpeg">
+<img src="1.jpeg">
+</div>
+</div>
+
+<div class="video-box">
+<video controls>
+<source src="vi.mp4" type="video/mp4">
+</video>
+</div>
+</section> -->
+<section id="about">
+<h2>About A One Home Nursing Care</h2>
+
+<div class="about-wrapper">
+
+<!-- LEFT TEXT -->
+<div class="about-text">
+<h3>Compassionate Care. Clinical Excellence.</h3>
+
+<p>
+A One Home Nursing Care was founded with a simple yet powerful mission —
+to bring <strong>hospital-quality medical care</strong> into the comfort
+and safety of patients’ homes.
+</p>
+
+<p>
+With years of hands-on experience in patient care, post-operative recovery,
+elder care, and chronic condition management, our team understands that
+<strong>healing is not just medical — it is emotional and personal</strong>.
+</p>
+
+<p>
+Every nurse and caregiver at A One Home Nursing Care is carefully selected,
+verified, and trained to ensure professionalism, hygiene, and empathy.
+</p>
+</div>
+
+<!-- RIGHT FOUNDER CARD -->
+<div class="founder-card">
+
+<img src="1.jpeg" alt="Founder - A One Home Nursing Care">
+
+<h4>Founder & Care Director</h4>
+<span>Home Healthcare Professional</span>
+
+<p>
+“I believe that every patient deserves dignity, comfort, and
+personal attention — especially during recovery.”
+</p>
+
+<div class="founder-gallery">
+<img src="2.jpeg" alt="Patient Care at Home">
+<img src="3.jpeg" alt="Clinical Consultation">
+</div>
+
+</div>
+
+</div>
 </section>
+
+<section class="video-section" id="service-video">
+  <div class="video-wrapper">
+
+    <!-- LEFT TEXT -->
+    <div class="video-text">
+      <h3>See Our Care in Action</h3>
+
+      <p>
+        At <strong>A One Home Nursing Care</strong>, we believe transparency
+        builds trust. This video gives you a real look at our nurses,
+        caregivers, and the compassionate home care we provide every day.
+      </p>
+
+      <p>
+        From bedside nursing to recovery support, our focus is always on
+        safety, dignity, and personal attention.
+      </p>
+
+      <a href="#appointment" class="btn">Book a Care Visit</a>
+    </div>
+
+    <!-- RIGHT VIDEO -->
+    <div class="video-box">
+      <video controls preload="metadata"
+             poster="images/video-poster.jpg">
+        <source src="videos/service.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+
+  </div>
+</section>
+
 
 <!-- SERVICES -->
 <section id="services">
 <h2>Our Services</h2>
 <div class="grid">
-<div class="card">Home Nursing</div>
-<div class="card">Physiotherapy</div>
-<div class="card">Medical Equipment</div>
+<div class="card"><img src="https://raw.githubusercontent.com/ExploreIndiaView/Nursing/main/ser1.jpg"><h3>Home Nursing</h3></div>
+<div class="card"><img src="https://raw.githubusercontent.com/ExploreIndiaView/Nursing/main/swr6.jpg"><h3>Physiotherapy</h3></div>
+<div class="card"><img src="https://raw.githubusercontent.com/ExploreIndiaView/Nursing/main/swr5.jpg"><h3>Medical Equipment</h3></div>
 </div>
 </section>
 
@@ -231,8 +556,14 @@ We provide compassionate, hospital-quality home nursing services ensuring comfor
 <h2>Facilities</h2>
 <div class="grid">
 <div class="card">24×7 Emergency Support</div>
-<div class="card">Certified Male & Female Nurses</div>
-<div class="card">BP, Sugar, Oxygen Monitoring</div>
+<div class="card">Certified Nurses</div>
+<div class="card">Injection</div>
+<div class="card">Cannula, Dressing </div>
+<div class="card">Urine Cather</div>
+<div class="card">Nebulizer</div>
+<div class="card">Sample Collection</div>
+<div class="card">Ralys tube</div>
+<div class="card">Enema & Bed Sore Care</div>
 </div>
 </section>
 
@@ -251,7 +582,6 @@ We provide compassionate, hospital-quality home nursing services ensuring comfor
 <h2>Submit a Review</h2>
 <form action="https://formspree.io/f/xwvejpqp" method="POST">
 <input type="hidden" name="_redirect" value="https://aonenursingcare.in/thank-you.html">
-<input type="hidden" name="_subject" value="New Review – A One Home Nursing Care">
 <input type="text" name="name" placeholder="Your Name" required>
 <input type="email" name="email" placeholder="Email (optional)">
 <textarea name="review" placeholder="Write your review..." required></textarea>
@@ -264,7 +594,6 @@ We provide compassionate, hospital-quality home nursing services ensuring comfor
 <h2>Book an Appointment</h2>
 <form action="https://formspree.io/f/xwvejpqp" method="POST">
 <input type="hidden" name="_redirect" value="https://aonenursingcare.in/thank-you.html">
-<input type="hidden" name="_subject" value="New Appointment – A One Home Nursing Care">
 <input type="text" name="name" placeholder="Your Name" required>
 <input type="tel" name="phone" pattern="[0-9]{10}" placeholder="Phone Number" required>
 <input type="email" name="email" placeholder="Email Address" required>
@@ -279,7 +608,7 @@ We provide compassionate, hospital-quality home nursing services ensuring comfor
 </form>
 </section>
 
-<!-- RESET FORMS ON BACK -->
+<!-- RESET FORMS -->
 <script>
 window.addEventListener("pageshow",e=>{
 if(e.persisted){
@@ -287,16 +616,14 @@ document.querySelectorAll("form").forEach(f=>f.reset());
 }});
 </script>
 
-<!-- MOBILE MENU FIX -->
+<!-- MOBILE MENU CLOSE -->
 <script>
 const menuToggle=document.getElementById("menuToggle");
 const navMenu=document.getElementById("navMenu");
-const navLinks=navMenu.querySelectorAll("a");
-
-menuToggle.onclick=()=>navMenu.classList.toggle("active");
-navLinks.forEach(link=>{
-link.onclick=()=>navMenu.classList.remove("active");
+navMenu.querySelectorAll("a").forEach(a=>{
+a.onclick=()=>navMenu.classList.remove("active");
 });
+menuToggle.onclick=()=>navMenu.classList.toggle("active");
 </script>
 
 <!-- FOOTER -->
